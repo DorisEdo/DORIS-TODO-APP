@@ -2,10 +2,31 @@ from app import app
 from flask import render_template
 
 
+todos = [
+    {
+        "id" : 1,
+        "title": "title1",
+        "description": "description1",
+        "created_at": "2025-11-12 09:27:37",
+    },
+     {
+        "id" : 2,
+        "title": "title2",
+        "description": "description3",
+        "created_at": "2025-11-12 09:27:37",
+    },
+     {
+        "id" : 3,
+        "title": "title3",
+        "description": "description3",
+        "created_at": "2025-11-12 09:27:37",
+    },
+]
+
 @app.route("/")
 def index():
-    # return "<h1>Todo index page</h1>"
-    return render_template("index.html")
+    todo_count = len(todos)
+    return render_template("index.html", count=todo_count)
 
 
 @app.route("/tasks")
