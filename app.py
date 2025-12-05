@@ -21,4 +21,4 @@ def task(task_id):
 
 @app.route("/new-task")
 def new_task():
-    return "<h1>Create new task</h1>"
+    return "<h1>New task</h1>"
