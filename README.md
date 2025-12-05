@@ -18,6 +18,7 @@ Windows (PowerShell):
 venv\Scripts\activate
 
 4️⃣ Install dependencies
+pip install flask
 pip install -r requirements.txt
 
 🚀 Run the Flask App
