@@ -4,24 +4,25 @@ from flask import render_template
 
 todos = [
     {
-        "id" : 1,
-        "title": "title1",
-        "description": "description1",
-        "created_at": "2025-11-12 09:27:37",
+        "id": 1,
+        "title": "Set up Flask Project Structure",
+        "description": "Create the Flask application, configure routes, and establish the basic folder structure for templates, static files, and modules.",
+        "created_at": "2025-12-01 09:42:17",
     },
-     {
-        "id" : 2,
-        "title": "title2",
-        "description": "description3",
-        "created_at": "2025-11-12 09:27:37",
+    {
+        "id": 2,
+        "title": "Design Blog Post Model",
+        "description": "Define the database schema for blog posts, including title, content, author, and timestamp fields, using SQLAlchemy or an equivalent ORM.",
+        "created_at": "2025-12-03 15:26:49",
     },
-     {
-        "id" : 3,
-        "title": "title3",
-        "description": "description3",
-        "created_at": "2025-11-12 09:27:37",
+    {
+        "id": 3,
+        "title": "Implement Post Creation Form",
+        "description": "Add a form using Flask-WTF to allow users to create new blog posts, validate inputs, and store entries in the database.",
+        "created_at": "2025-11-30 11:58:05",
     },
 ]
+
 
 @app.route("/")
 def index():
@@ -31,12 +32,13 @@ def index():
 
 @app.route("/tasks")
 def all_tasks():
-    return render_template("tasks.html")
+    return render_template("tasks.html", todos=todos)
 
 
 @app.route("/task/<int:task_id>")
 def task(task_id):
-    return f"<h1>Task detail page for task {task_id}</h1>"
+    task = todos[task_id - 1]
+    return render_template("task.html", task=task )
 
 
 @app.route("/new-task")

@@ -37,3 +37,15 @@ GitHub Codespaces:
 (GitHub will open this automatically)
 
 https://<your-codespace-URL>-5000.app.github.dev/
+
+
+for formatting use:
+
+black .
+ruff check . --fix
+
+inside the venv:
+
+pip install black ruff
+
+
