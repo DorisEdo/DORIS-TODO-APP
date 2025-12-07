@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request,redirect, url_for
+from flask import render_template, request,redirect, url_for,flash
 from datetime import datetime
 from forms import LoginForm
 
@@ -75,8 +75,13 @@ def delete_task(task_id):
     todos = [todo for todo in todos if todo["id"] !=task_id]
     return redirect(url_for("all_task"))
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
+    print("login")
+    if form.validate_on_submit():
+        flash(f"login requested for user {form.username.data}, remember_me={form.remember_me.data}")
+        print("form submitted")
+        return redirect(url_for("index"))
     return render_template("login.html", form=form)
     

@@ -70,7 +70,29 @@ main {
     display: block;
 }
 
-* New Task / Edit Task forms */
+.task-list a:hover {
+    color: #084b8a;
+    text-decoration: underline;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+  background-color: DeepSkyBlue;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* New Task / Edit Task forms */
 label {
     display: block;
     font-weight: bold;
